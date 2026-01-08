@@ -150,3 +150,120 @@ Branch: Computer Science and Engineering - 2nd Year
 
 En.No : 24114074
 
+
+
+
+Here is the complete `README.md` content, professionally formatted with visual hierarchy to make your project stand out.
+
+```markdown
+# 🤖 AutoJudge: ML-Powered Problem Difficulty Predictor
+
+**AutoJudge** is a machine learning–based application designed to predict the difficulty level of programming problems using only their textual descriptions. It bridges the gap between subjective platform labeling and objective complexity analysis.
+
+---
+
+## 🚀 Project Overview
+Competitive programming platforms label problems by difficulty, but these labels are often subjective and vary across sites. **AutoJudge** automates this process by learning linguistic and structural patterns from problem statements.
+
+This project demonstrates a complete **end-to-end ML pipeline**, including:
+* *Preprocessing & Text Normalization*
+* *Feature Extraction (TF-IDF & Numeric)*
+* *Model Training & Evaluation*
+* *Web Deployment via Flask*
+
+---
+
+## 📊 Dataset Specifications
+The model is trained on a curated dataset located at `data/problems_data.jsonl`. Each entry includes:
+* **Problem Metadata:** Title, Description, Input/Output specifications.
+* **Target Labels:** Difficulty Class (*Easy, Medium, Hard*) and a numerical difficulty score for fine-grained estimation.
+
+---
+
+## 🧠 Approach and Models
+
+### 1. Preprocessing & Feature Extraction
+* **Text Cleaning:** Normalization of problem statements and merging fields (Description + Input + Output) into a unified corpus.
+* **TF-IDF Vectorization:** Used to convert text into a high-dimensional representation of term importance.
+* **Numeric Features:** Includes text length and word count to provide context for the regression model.
+
+### 2. Machine Learning Models
+
+
+[Image of machine learning workflow diagram]
+
+* **Classification:** *Linear Support Vector Classifier (LinearSVC)*
+    * Predicts the categorical label: **Easy, Medium, or Hard**.
+* **Regression:** *Random Forest Regressor*
+    * Predicts a **continuous numerical score** for precise difficulty mapping.
+
+### 3. Evaluation Metrics
+* **Classification:** Accuracy (Significantly outperforms the 33% random baseline).
+* **Regression:** Evaluated using **MAE** (Mean Absolute Error) and **RMSE** (Root Mean Squared Error).
+
+---
+
+## 🛠️ Installation & Usage
+
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+
+```
+
+### 2. Feature Engineering
+
+```bash
+python src/features.py
+
+```
+
+### 3. Model Training
+
+```bash
+python src/train_classifier.py
+python src/train_regressor.py
+
+```
+
+### 4. Launch the Web Interface
+
+```bash
+python web/app.py
+
+```
+
+*Open your browser and visit: **http://127.0.0.1:5000***
+
+---
+
+## 🌐 Web Interface
+
+The interactive UI allows users to paste any programming problem statement to receive:
+
+1. **Predicted Difficulty Class** (*Easy / Medium / Hard*)
+2. **Numerical Difficulty Score**
+3. **Confidence Handling:** Built-in logic to handle short inputs or low-confidence text.
+
+---
+
+## 🎥 Project Demo
+
+**[Click here to view the Demo Video](https://drive.google.com/drive/folders/1SRkyDWGsUirLwVx-um2PtKrVte9u33Xc?usp=sharing)**
+
+---
+
+## 👤 Developer Information
+
+* **Name:** Rathod Anshul Ram
+* **Institute:** Indian Institute of Technology Roorkee (IITR)
+* **Branch:** Computer Science and Engineering — 2nd Year
+* **Enrollment No:** 24114074
+
+```
+
+***
+
+**Would you like me to add a "Future Scope" section or include a sample table for the evaluation metrics?**
+
+```
