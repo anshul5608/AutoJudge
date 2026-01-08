@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Judge • Problem Difficulty Predictor</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="background-blur"></div>
+
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>AutoJudge</h1>
+            <p>Programming problem difficulty prediction</p>
+        </header>
+
+        <!-- Form Card -->
+        <section class="card">
+            <form method="POST">
+                <label for="problem">Paste Problem Statement</label>
+
+                <textarea
+                    id="problem"
+                    name="problem"
+                    placeholder="Paste the complete problem description here (title, input, output, explanation)..."
+                    required>{{ request.form.problem or '' }}</textarea>
+
+                <button type="submit">
+                    Analyze Difficulty
+                </button>
+            </form>
+        </section>
+
+        <!-- Results -->
+        {% if prediction %}
+        <section class="result-card">
+            <div class="result-item">
+                <span class="label">Predicted Difficulty</span>
+                <span class="value {{ prediction.class|lower }}">
+                    {{ prediction.class }}
+                </span>
+            </div>
+
+            <div class="result-item">
+                <span class="label">Difficulty Score</span>
+                <span class="value score">
+                    {{ prediction.score }}
+                </span>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                • AutoJudge Project - Developed by Anshul •
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
